@@ -4,28 +4,10 @@
 #include <iostream>
 #include <unordered_map>
 
-class CompareDist {
-  public:
-    bool operator() (std::pair< int, int > n1, std::pair< int, int > n2) {
-      return n1.second > n2.second;
-    }
-};
-
 std::vector< int >* countOccurences(const std::vector< int > &list, int n);
 
 int main(int argc, char **argv) {
-  std::vector< int > list, *occurences;
-
-  list.push_back(1);
-  list.push_back(5);
-  list.push_back(3);
-  list.push_back(8);
-  list.push_back(5);
-  list.push_back(8);
-  list.push_back(5);
-  list.push_back(1);
-  list.push_back(1);
-  list.push_back(1);
+  std::vector< int > list = {1, 5, 3, 8, 5, 8, 5, 1, 1}, *occurences;
 
   occurences = countOccurences(list, 2);
 
@@ -38,9 +20,11 @@ int main(int argc, char **argv) {
 }
 
 std::vector< int >* countOccurences(const std::vector< int > &list, int n) {
+  auto lambda = [](const std::pair< int, int > &left, const std::pair< int, int > &right) -> bool { return left.second > right.second; };
+
   std::vector< int > *result = new std::vector< int >;
   std::unordered_map< int, int > occurences;
-  std::priority_queue< std::pair< int, int >, std::vector< std::pair< int, int > >, CompareDist > mostOccurences;
+  std::priority_queue< std::pair< int, int >, std::vector< std::pair< int, int > >, decltype(lambda) > mostOccurences(lambda);
 
   // for every value in the list
   for (int value : list) {
