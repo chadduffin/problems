@@ -7,7 +7,9 @@
 std::vector< int >* countOccurences(const std::vector< int > &list, int n);
 
 int main(int argc, char **argv) {
-  std::vector< int > list = {1, 5, 3, 8, 5, 8, 5, 1, 1}, *occurences;
+  std::vector< int > list = {1, 1, 1, 1, 2, 2, 2, 3, 3, 4}, *occurences;
+
+  std::random_shuffle(list.begin(), list.end());
 
   occurences = countOccurences(list, 2);
 

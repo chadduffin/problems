@@ -8,6 +8,6 @@ L3 = [5, 11, 23, 40]
 
 Foo(L1, L2, L3) would return 3, from values 3 @ L2, 4 @ L1 and 5 @ L3.
 
-Details
+# Details
 * The lists are sorted.
 * The lists can be arbitrarily large.
