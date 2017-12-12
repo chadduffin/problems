@@ -1,5 +1,3 @@
-// longest common subsequence
-
 #include <vector>
 #include <string>
 #include <iostream>
