@@ -6,13 +6,11 @@ void moveTower(int src, int dst, int tmp, int size, std::stack< int > *towers);
 int main(int argc, char **argv) {
   std::stack< int > towers[3];
 
-  towers[0].push(5);
-  towers[0].push(4);
-  towers[0].push(3);
-  towers[0].push(2);
-  towers[0].push(1);
+  for (int i = 99; i >= 0; i--) {
+    towers[0].push(i);
+  }
 
-  moveTower(0, 2, 1, 5, towers);
+  moveTower(0, 2, 1, 100, towers);
 
   while (!towers[2].empty()) {
     std::cout << towers[2].top() << " ";
